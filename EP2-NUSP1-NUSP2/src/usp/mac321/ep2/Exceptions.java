@@ -4,8 +4,26 @@ public class Exceptions {
 
 }
 
-class InvalidInput extends Exception {
-    public InvalidInput(String message) {
+class InvalidUserInput extends Exception {
+    public InvalidUserInput(String message) {
+        super(message);
+    }
+}
+
+class InvalidDespesaInput extends Exception {
+    public InvalidDespesaInput(String message) {
+        super(message);
+    }
+}
+
+class InvalidReceitaInput extends Exception {
+    public InvalidReceitaInput(String message) {
+        super(message);
+    }
+}
+
+class InvalidLancamentoInput extends Exception {
+    public InvalidLancamentoInput(String message) {
         super(message);
     }
 }
