@@ -10,10 +10,10 @@ public class TipoReceita {
     }
 
     public String getCategoria() {
-        return categoria;
+        return this.categoria;
     }
 
     public String getSubcategoria() {
-        return subcategoria;
+        return this.subcategoria;
     }
 }

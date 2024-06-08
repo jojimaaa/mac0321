@@ -22,4 +22,32 @@ public class Lancamento {
         this.valor = valor;
         this.descricao = descricao;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public String getUserResponsable() {
+        return userResponsable;
+    }
+
+    public boolean getTipo() {
+        return tipo;
+    }
+
+    public String getSubcategoria() {
+        return subcategoria;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
 }

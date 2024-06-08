@@ -8,8 +8,11 @@ import org.junit.jupiter.api.Test;
 
 class TestaLeitorFinancasPessoais {
 
+
+	
 	@BeforeEach
 	void setUp() throws Exception {
+
 	}
 
 	@AfterEach
