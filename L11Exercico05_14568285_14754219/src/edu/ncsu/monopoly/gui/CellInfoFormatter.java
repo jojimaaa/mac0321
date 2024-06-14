@@ -1,7 +1,7 @@
 package edu.ncsu.monopoly.gui;
 
-import edu.ncsu.monopoly.theOwner;
+import edu.ncsu.monopoly.IOwnable;
 
 public interface CellInfoFormatter {
-    public String format(theOwner theOwner);
+    public String format(IOwnable theOwner);
 }

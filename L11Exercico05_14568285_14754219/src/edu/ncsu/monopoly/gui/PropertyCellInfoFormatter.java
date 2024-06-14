@@ -1,11 +1,11 @@
 package edu.ncsu.monopoly.gui;
 
-import edu.ncsu.monopoly.theOwner;
+import edu.ncsu.monopoly.IOwnable;
 import edu.ncsu.monopoly.Player;
 import edu.ncsu.monopoly.PropertyCell;
 
 public class PropertyCellInfoFormatter implements CellInfoFormatter {
-    public String format(theOwner theOwner) {
+    public String format(IOwnable theOwner) {
         PropertyCell c = (PropertyCell)theOwner;
         StringBuffer buf = new StringBuffer();
         Player owner = theOwner.getOwner();

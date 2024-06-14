@@ -12,7 +12,7 @@ public class Player {
 	private int money;
 	private String name;
 
-	private theOwner position;
+	private IOwnable position;
 	private ArrayList properties = new ArrayList();
 	private ArrayList railroads = new ArrayList();
 	private ArrayList utilities = new ArrayList();
@@ -25,7 +25,7 @@ public class Player {
 		}
 	}
 
-    public void buyProperty(theOwner property, int amount) {
+    public void buyProperty(IOwnable property, int amount) {
         property.setOwner(this);
         if(property instanceof PropertyCell) {
             PropertyCell cell = (PropertyCell)property;
@@ -55,7 +55,7 @@ public class Player {
 
 	public boolean checkProperty(String property) {
 		for(int i=0;i<properties.size();i++) {
-			theOwner theOwner = (theOwner)properties.get(i);
+			IOwnable theOwner = (IOwnable)properties.get(i);
 			if(theOwner.getName().equals(property)) {
 				return true;
 			}
@@ -82,12 +82,12 @@ public class Player {
 		properties.clear();
 	}
     
-    public theOwner[] getAllProperties() {
+    public IOwnable[] getAllProperties() {
         ArrayList list = new ArrayList();
         list.addAll(properties);
         list.addAll(utilities);
         list.addAll(railroads);
-        return (theOwner[])list.toArray(new theOwner[list.size()]);
+        return (IOwnable[])list.toArray(new IOwnable[list.size()]);
     }
 
 	public int getMoney() {
@@ -124,7 +124,7 @@ public class Player {
 		GameMaster.instance().updateGUI();
 	}
 
-	public theOwner getPosition() {
+	public IOwnable getPosition() {
 		return this.position;
 	}
 	
@@ -177,7 +177,7 @@ public class Player {
 	
 	public void purchase() {
 		if(getPosition().isAvailable()) {
-			theOwner c = getPosition();
+			IOwnable c = getPosition();
 			c.setAvailable(false);
 			if(c instanceof PropertyCell) {
 				PropertyCell cell = (PropertyCell)c;
@@ -221,7 +221,7 @@ public class Player {
 	    buyProperty(cell, cell.getPrice());
 	}
 
-    public void sellProperty(theOwner property, int amount) {
+    public void sellProperty(IOwnable property, int amount) {
         property.setOwner(null);
         if(property instanceof PropertyCell) {
             properties.remove(property);
@@ -247,7 +247,7 @@ public class Player {
 		this.name = name;
 	}
 
-	public void setPosition(theOwner newPosition) {
+	public void setPosition(IOwnable newPosition) {
 		this.position = newPosition;
 	}
 

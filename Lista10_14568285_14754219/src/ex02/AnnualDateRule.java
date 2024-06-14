@@ -6,7 +6,7 @@ package ex02;
  * 2. Nada é feito para atribuir um valor ao atributo dayOfMonth, o que pode causar problemas.
  * 3. Há muitos comentários inúteis e redundantes.
  * 4. O construtor é protected, mas a classe é pública. Queremos, usualmente um construtor público.
- * 
+ * 5. A declaração da classe está com () no final, isso é algo que encontramos nos métodos. Deste modo, o programa não compilaria.
  * No geral deve-se evitar muitos comentários, a fim de manter o código o mais limpo possível.
  * Vale lembrar a máxima: "Don't comment bad code, rewrite it."
  * 

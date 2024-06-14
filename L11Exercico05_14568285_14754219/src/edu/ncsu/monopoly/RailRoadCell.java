@@ -12,6 +12,8 @@ public class RailRoadCell extends theOwner {
 	public static void setPrice(int price) {
 		RailRoadCell.price = price;
 	}
+
+	private boolean available = true;
 	
 	public int getPrice() {
 		return RailRoadCell.price;
@@ -29,5 +31,15 @@ public class RailRoadCell extends theOwner {
 				currentPlayer.payRentTo(owner, getRent());
 			}
 		}
+	}
+
+	@Override
+	public boolean isAvailable() {
+		return available;
+	}
+
+	@Override
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

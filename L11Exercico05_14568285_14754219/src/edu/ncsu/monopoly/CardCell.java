@@ -2,6 +2,7 @@ package edu.ncsu.monopoly;
 
 public class CardCell extends theOwner {
     private int type;
+	private boolean available = true;
     
     public CardCell(int type, String name) {
         setName(name);
@@ -14,4 +15,14 @@ public class CardCell extends theOwner {
     public int getType() {
         return type;
     }
+
+	@Override
+	public boolean isAvailable() {
+		return available;
+	}
+
+	@Override
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
 }

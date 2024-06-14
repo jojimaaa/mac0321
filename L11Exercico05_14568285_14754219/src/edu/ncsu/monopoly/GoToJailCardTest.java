@@ -19,7 +19,7 @@ public class GoToJailCardTest extends TestCase {
 		Card card = gameMaster.drawCCCard();
 		assertEquals(jailCard, card);
 		card.applyAction();
-		theOwner theOwner = gameMaster.getCurrentPlayer().getPosition();
+		IOwnable theOwner = gameMaster.getCurrentPlayer().getPosition();
 		assertEquals(gameMaster.getGameBoard().queryCell("Jail"), theOwner);
     }
     
@@ -34,7 +34,7 @@ public class GoToJailCardTest extends TestCase {
         assertFalse(gameMaster.getGUI().isEndTurnButtonEnabled());
         gameMaster.btnDrawCardClicked();
         assertFalse(gameMaster.getGUI().isDrawCardButtonEnabled());
-		theOwner theOwner = gameMaster.getCurrentPlayer().getPosition();
+		IOwnable theOwner = gameMaster.getCurrentPlayer().getPosition();
 		assertEquals(gameMaster.getGameBoard().queryCell("Jail"), theOwner);
 		assertTrue(gameMaster.getGUI().isEndTurnButtonEnabled());
     }

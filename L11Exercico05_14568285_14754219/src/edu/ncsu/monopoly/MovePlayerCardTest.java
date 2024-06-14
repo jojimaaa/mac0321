@@ -24,7 +24,7 @@ public class MovePlayerCardTest extends TestCase {
 		Card card = gameMaster.drawCCCard();
 		assertEquals(movePlayerCard, card);
 		card.applyAction();
-		theOwner theOwner = gameMaster.getCurrentPlayer().getPosition();
+		IOwnable theOwner = gameMaster.getCurrentPlayer().getPosition();
 		assertEquals(gameMaster.getGameBoard().queryCell("Blue 1"), theOwner);
     }
     
@@ -34,7 +34,7 @@ public class MovePlayerCardTest extends TestCase {
         assertFalse(gameMaster.getGUI().isEndTurnButtonEnabled());
         gameMaster.btnDrawCardClicked();
         assertFalse(gameMaster.getGUI().isDrawCardButtonEnabled());
-		theOwner theOwner = gameMaster.getCurrentPlayer().getPosition();
+		IOwnable theOwner = gameMaster.getCurrentPlayer().getPosition();
 		assertEquals(gameMaster.getGameBoard().queryCell("Blue 1"), theOwner);
 		assertTrue(gameMaster.getGUI().isEndTurnButtonEnabled());
 		assertEquals(1700, gameMaster.getCurrentPlayer().getMoney());

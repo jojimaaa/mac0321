@@ -1,6 +1,8 @@
 package edu.ncsu.monopoly;
 
 public class GoCell extends theOwner {
+	private boolean available = true;
+
 	public GoCell() {
 		super.setName("Go");
 		setAvailable(false);
@@ -10,5 +12,15 @@ public class GoCell extends theOwner {
 	}
 	
 	void setName(String name) {
+	}
+
+	@Override
+	public boolean isAvailable() {
+		return available;
+	}
+
+	@Override
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

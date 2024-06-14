@@ -9,6 +9,8 @@ public class UtilityCell extends theOwner {
 		UtilityCell.PRICE = price;
 	}
 
+	private boolean available = true;
+
 	public int getPrice() {
 		return UtilityCell.PRICE;
 	}
@@ -32,5 +34,15 @@ public class UtilityCell extends theOwner {
 				currentPlayer.payRentTo(owner, getRent(diceRoll));
 			}
 		}
+	}
+
+	@Override
+	public boolean isAvailable() {
+		return available;
+	}
+
+	@Override
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

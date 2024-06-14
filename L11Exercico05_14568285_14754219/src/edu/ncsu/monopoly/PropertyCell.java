@@ -6,6 +6,7 @@ public class PropertyCell extends theOwner {
 	private int numHouses;
 	private int rent;
 	private int sellPrice;
+	private boolean available = true;
 
 	public String getColorGroup() {
 		return colorGroup;
@@ -25,14 +26,19 @@ public class PropertyCell extends theOwner {
 
 	public int getRent() {
 		int rentToCharge = rent;
+		rentToCharge = calcMonopoliesRent(rentToCharge);
+		if(numHouses > 0) {
+			rentToCharge = rent * (numHouses + 1);
+		}
+		return rentToCharge;
+	}
+
+	private int calcMonopoliesRent(int rentToCharge) {
 		String [] monopolies = owner.getMonopolies();
 		for(int i = 0; i < monopolies.length; i++) {
 			if(monopolies[i].equals(colorGroup)) {
 				rentToCharge = rent * 2;
 			}
-		}
-		if(numHouses > 0) {
-			rentToCharge = rent * (numHouses + 1);
 		}
 		return rentToCharge;
 	}
@@ -65,5 +71,15 @@ public class PropertyCell extends theOwner {
 
 	public void setRent(int rent) {
 		this.rent = rent;
+	}
+
+	@Override
+	public boolean isAvailable() {
+		return available;
+	}
+
+	@Override
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

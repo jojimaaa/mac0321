@@ -13,7 +13,7 @@ public class GameBoard {
 	private GameMaster gameMaster;
 	
 	public GameBoard() {
-		theOwner go = new GoCell();
+		IOwnable go = new GoCell();
 		addCell(go);
 	}
 
@@ -25,13 +25,14 @@ public class GameBoard {
         }
     }
 	
-	public void addCell(theOwner theOwner) {
+	public void addCell(IOwnable theOwner) {
 		cells.add(theOwner);
 	}
 	
 	public void addCell(PropertyCell cell) {
-		int propertyNumber = getPropertyNumberForColor(cell.getColorGroup());
-		colorGroups.put(cell.getColorGroup(), new Integer(propertyNumber + 1));
+		String cellColorGroup = cell.getColorGroup();
+		int propertyNumber = getPropertyNumberForColor(cellColorGroup);
+		colorGroups.put(cellColorGroup, new Integer(propertyNumber + 1));
         cells.add(cell);
 	}
 
@@ -49,8 +50,8 @@ public class GameBoard {
         return card;
     }
 
-	public theOwner getCell(int newIndex) {
-		return (theOwner)cells.get(newIndex);
+	public IOwnable getCell(int newIndex) {
+		return (IOwnable)cells.get(newIndex);
 	}
 	
 	public int getCellNumber() {
@@ -62,7 +63,7 @@ public class GameBoard {
 			new PropertyCell[getPropertyNumberForColor(color)];
 		int counter = 0;
 		for (int i = 0; i < getCellNumber(); i++) {
-			theOwner c = getCell(i);
+			IOwnable c = getCell(i);
 			if(c instanceof PropertyCell) {
 				PropertyCell pc = (PropertyCell)c;
 				if(pc.getColorGroup().equals(color)) {
@@ -82,9 +83,9 @@ public class GameBoard {
 		return 0;
 	}
 
-	public theOwner queryCell(String string) {
+	public IOwnable queryCell(String string) {
 		for(int i = 0; i < cells.size(); i++){
-			theOwner temp = (theOwner)cells.get(i); 
+			IOwnable temp = (IOwnable)cells.get(i); 
 			if(temp.getName().equals(string)) {
 				return temp;
 			}
@@ -94,7 +95,7 @@ public class GameBoard {
 	
 	public int queryCellIndex(String string){
 		for(int i = 0; i < cells.size(); i++){
-			theOwner temp = (theOwner)cells.get(i); 
+			IOwnable temp = (IOwnable)cells.get(i); 
 			if(temp.getName().equals(string)) {
 				return i;
 			}

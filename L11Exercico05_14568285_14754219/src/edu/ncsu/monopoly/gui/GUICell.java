@@ -9,11 +9,11 @@ import edu.ncsu.monopoly.*;
 
 public class GUICell extends JPanel {
 
-	private theOwner theOwner;
+	private IOwnable theOwner;
 	private JLabel lblInfo;
 	private JLabel[] lblPlayers = new JLabel[GameMaster.MAX_PLAYER];
 	
-    public GUICell(theOwner theOwner) {
+    public GUICell(IOwnable theOwner) {
         this.theOwner = theOwner;
         setLayout(new OverlayLayout(this));
         setBorder(new BevelBorder(BevelBorder.LOWERED));
@@ -56,7 +56,7 @@ public class GUICell extends JPanel {
 		this.repaint();
 	}
 
-	public theOwner getCell() {
+	public IOwnable getCell() {
 		return theOwner;
 	}
 	
