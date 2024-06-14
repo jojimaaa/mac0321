@@ -16,7 +16,7 @@ public class CartaoUtilRefactored {
     public static final String CARTAO_OK = "Cartão válido";
     public static final String CARTAO_ERRO = "Cartão inválido";
 
-    public boolean validarValidade(String validade) {
+    public static boolean validarValidade(String validade) {
         Date dataValidade = null;
         try {
             dataValidade = new SimpleDateFormat("MM/yyyy").parse(validade);
@@ -29,7 +29,7 @@ public class CartaoUtilRefactored {
         return calHoje.before(calValidade);
     }
 
-    public String formatNumber(String numero) {
+    public static String formatNumber(String numero) {
         String formatado = "";
         for (int i = 0; i < numero.length(); i++) {
             char temp = numero.charAt(i);
@@ -40,16 +40,17 @@ public class CartaoUtilRefactored {
         return formatado;
     }
 
-    public boolean validarNumero(String numero) {
+    public static boolean validarNumero(String numero) {
         int somaAlternada = 0;
         int somaRemanescentes = 0;
-        for (int i = 0; i < numero.length(); i+=2) {
-            int digitoAtual = Integer.parseInt(Character.toString(numero.charAt(i)));
-            if(2*digitoAtual >= 10) somaAlternada += (2*digitoAtual - 9);
-            else somaAlternada += 2*digitoAtual;
+        for (int i = 0; i < numero.length(); i += 2) {
+            int numeroAtual = 2 * Integer.parseInt(Character.toString(numero.charAt(i)));
+            if (numeroAtual >= 10)
+                somaAlternada += (numeroAtual - 9);
+            else
+                somaAlternada += numeroAtual;
             somaRemanescentes += Integer.parseInt(Character.toString(numero.charAt(i + 1)));
         }
-
         return (somaAlternada + somaRemanescentes) % 10 == 0;
     }
 
@@ -59,17 +60,21 @@ public class CartaoUtilRefactored {
         switch (bandeira) {
             case VISA:
                 validador = new ValidaVISA();
+                break;
             case MASTERCARD:
                 validador = new ValidaMASTERCARD();
+                break;
             case AMEX:
                 validador = new ValidaAMEX();
+                break;
             case DINERS:
                 validador = new ValidaDINERS();
-            default:
+                break;
+            default: break;
         }
-        if(validador.validarPrefixoTamanho(formatado) && validarNumero(formatado) && validarValidade(validade))
-        return CARTAO_OK;
-    else
-        return CARTAO_ERRO;
+        if (validador.validarPrefixoTamanho(formatado) && validarNumero(formatado) && validarValidade(validade))
+            return CARTAO_OK;
+        else
+            return CARTAO_ERRO;
     }
 }
