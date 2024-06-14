@@ -1,6 +1,6 @@
 package edu.ncsu.monopoly;
 
-public class PropertyCell extends theOwner {
+public class PropertyCell extends Cell {
 	private String colorGroup;
 	private int housePrice;
 	private int numHouses;
@@ -34,7 +34,7 @@ public class PropertyCell extends theOwner {
 	}
 
 	private int calcMonopoliesRent(int rentToCharge) {
-		String [] monopolies = owner.getMonopolies();
+		String [] monopolies = theOwner.getMonopolies();
 		for(int i = 0; i < monopolies.length; i++) {
 			if(monopolies[i].equals(colorGroup)) {
 				rentToCharge = rent * 2;
@@ -47,8 +47,8 @@ public class PropertyCell extends theOwner {
 		Player currentPlayer = null;
 		if(!isAvailable()) {
 			currentPlayer = GameMaster.instance().getCurrentPlayer();
-			if(owner != currentPlayer) {
-				currentPlayer.payRentTo(owner, getRent());
+			if(theOwner != currentPlayer) {
+				currentPlayer.payRentTo(theOwner, getRent());
 			}
 		}
 	}

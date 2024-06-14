@@ -1,6 +1,6 @@
 package edu.ncsu.monopoly;
 
-public class FreeParkingCell extends theOwner {
+public class FreeParkingCell extends Cell {
 
 	private boolean available = true;
 

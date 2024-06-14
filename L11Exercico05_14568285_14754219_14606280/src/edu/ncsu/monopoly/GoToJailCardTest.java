@@ -25,7 +25,7 @@ public class GoToJailCardTest extends TestCase {
     
     public void testJailCardLabel() {
         assertEquals("Go to Jail immediately without collecting" +
-        		" $200 when passing the GO theOwner", jailCard.getLabel());
+        		" $200 when passing the GO Cell", jailCard.getLabel());
     }
     
     public void testJailCardUI() {

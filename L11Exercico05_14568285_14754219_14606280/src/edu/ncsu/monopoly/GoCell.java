@@ -1,6 +1,6 @@
 package edu.ncsu.monopoly;
 
-public class GoCell extends theOwner {
+public class GoCell extends Cell {
 	private boolean available = true;
 
 	public GoCell() {

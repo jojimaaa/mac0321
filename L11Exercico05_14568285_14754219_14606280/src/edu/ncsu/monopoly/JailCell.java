@@ -1,6 +1,6 @@
 package edu.ncsu.monopoly;
 
-public class JailCell extends theOwner {
+public class JailCell extends Cell {
 	public static int BAIL = 50;
 	private boolean available = true;
 	

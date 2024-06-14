@@ -20,6 +20,6 @@ public class JailCard extends Card {
 
     public String getLabel() {
         return "Go to Jail immediately without collecting" +
-        		" $200 when passing the GO theOwner";
+        		" $200 when passing the GO Cell";
     }
 }

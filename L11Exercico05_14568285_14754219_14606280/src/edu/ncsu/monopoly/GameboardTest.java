@@ -5,18 +5,18 @@ import junit.framework.TestCase;
 
 public class GameboardTest extends TestCase {
 
-	theOwner theOwner;
+	Cell Cell;
 	GameBoard gameBoard;
 	
 	protected void setUp() throws Exception {
 		gameBoard = new GameBoard();
-		theOwner = new PropertyCell();
-		theOwner.setName("TempCell");
+		Cell = new PropertyCell();
+		Cell.setName("TempCell");
 	}
 
 	public void testAddCell() {
 		assertEquals(1, gameBoard.getCellNumber());
-		gameBoard.addCell(theOwner);
+		gameBoard.addCell(Cell);
 		assertEquals(2, gameBoard.getCellNumber());
 	}
 	
@@ -48,12 +48,12 @@ public class GameboardTest extends TestCase {
 	}
 	
 	public void testQueryCell() {
-		gameBoard.addCell(theOwner);
-		assertSame(theOwner,gameBoard.queryCell("TempCell"));
+		gameBoard.addCell(Cell);
+		assertSame(Cell,gameBoard.queryCell("TempCell"));
 	}
 	
 	public void testQueryCellIndex() {
-		gameBoard.addCell(theOwner);
+		gameBoard.addCell(Cell);
 		assertEquals(0,gameBoard.queryCellIndex("Go"));
 		assertEquals(1,gameBoard.queryCellIndex("TempCell"));
 	}

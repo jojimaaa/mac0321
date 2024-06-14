@@ -1,6 +1,6 @@
 package edu.ncsu.monopoly;
 
-public class GoToJailCell extends theOwner {
+public class GoToJailCell extends Cell {
 	
 	private boolean available = true;
 

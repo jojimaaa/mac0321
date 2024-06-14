@@ -1,8 +1,8 @@
 package edu.ncsu.monopoly;
 
-public abstract class theOwner implements IOwnable {
+public abstract class Cell implements IOwnable {
 	private String name;
-	protected Player owner;
+	protected Player theOwner;
 
 	@Override
 	public String getName() {
@@ -11,7 +11,7 @@ public abstract class theOwner implements IOwnable {
 
 	@Override
 	public Player getOwner() {
-		return owner;
+		return theOwner;
 	}
 	
 	@Override
@@ -28,7 +28,7 @@ public abstract class theOwner implements IOwnable {
 
 	@Override
 	public void setOwner(Player owner) {
-		this.owner = owner;
+		this.theOwner = owner;
 	}
     
     @Override
