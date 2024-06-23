@@ -16,4 +16,8 @@ public class TipoDespesa {
     public String getSubcategoria() {
         return this.subcategoria;
     }
+
+    public boolean equals(TipoDespesa t) {
+        return this.categoria.equals(t.getCategoria()) && this.subcategoria.equals(t.getSubcategoria());
+    }
 }

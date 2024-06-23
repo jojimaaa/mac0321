@@ -189,4 +189,12 @@ public class LeitorImplementation implements LeitorFinancasPessoaisDAO {
 		return false;
 	}
 
+	public void clear(){
+		usuarios.clear();
+		tiposDespesas.clear();
+		tiposReceitas.clear();
+		lancamentos.clear();
+		idMap.clear();
+	}
+
 }

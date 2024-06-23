@@ -16,4 +16,8 @@ public class Usuario {
     public String getNome() {
         return nome;
     }
+
+    public boolean equals(Usuario u) {
+        return this.apelido.equals(u.getApelido()) && this.nome.equals(u.getNome());
+    }
 }
