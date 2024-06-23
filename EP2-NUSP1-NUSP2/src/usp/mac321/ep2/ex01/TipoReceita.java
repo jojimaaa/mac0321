@@ -16,4 +16,8 @@ public class TipoReceita {
     public String getSubcategoria() {
         return this.subcategoria;
     }
+
+    public boolean equals(TipoReceita t) {
+        return this.categoria.equals(t.getCategoria()) && this.subcategoria.equals(t.getSubcategoria());
+    }
 }

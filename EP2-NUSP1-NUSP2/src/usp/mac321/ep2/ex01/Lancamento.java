@@ -49,4 +49,8 @@ public class Lancamento {
     public String getDescricao() {
         return descricao;
     }
+
+    public boolean equals(Lancamento l) {
+        return this.id == l.getId() && this.data.equals(l.getData()) && this.userResponsable.equals(l.getUserResponsable()) && this.tipo == l.getTipo() && this.subcategoria.equals(l.getSubcategoria()) && this.valor == l.getValor() && this.descricao.equals(l.getDescricao());
+    }
 }
