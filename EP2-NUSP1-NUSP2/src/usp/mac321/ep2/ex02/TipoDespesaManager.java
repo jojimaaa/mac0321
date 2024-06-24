@@ -42,6 +42,18 @@ public class TipoDespesaManager implements WriterDAO<TipoDespesa>, GetterDAO<Tip
         }
         return false;
     }
+
+    public boolean remove(String Categoria, String Subcategoria){
+        if(Categoria == null || Subcategoria == null)
+            return false;
+        for(TipoDespesa t : tiposDespesa){
+            if(t.getCategoria().equals(Categoria) && t.getSubcategoria().equals(Subcategoria)){
+                tiposDespesa.remove(t);
+                return true;
+            }
+        }
+        return false;
+    }
     
     @Override
     public TipoDespesa get(TipoDespesa object) {

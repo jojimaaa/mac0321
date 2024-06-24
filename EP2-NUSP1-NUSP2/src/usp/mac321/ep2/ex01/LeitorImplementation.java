@@ -1,5 +1,6 @@
 package usp.mac321.ep2.ex01;
 
+import usp.mac321.ep2.exceptions.*;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -165,7 +166,7 @@ public class LeitorImplementation implements LeitorFinancasPessoaisDAO {
 		return lancamentos;
 	}
 
-	private boolean usuarioExiste(String string) {
+	protected boolean usuarioExiste(String string) {
 		for (Usuario u : usuarios) {
 			if (u.getApelido().equals(string))
 				return true;
@@ -173,7 +174,7 @@ public class LeitorImplementation implements LeitorFinancasPessoaisDAO {
 		return false;
 	}
 
-	private boolean isSubcategoriaDespesa(String string) {
+	protected boolean isSubcategoriaDespesa(String string) {
 		for (TipoDespesa td : tiposDespesas) {
 			if (td.getSubcategoria().equals(string))
 				return true;
@@ -181,7 +182,7 @@ public class LeitorImplementation implements LeitorFinancasPessoaisDAO {
 		return false;
 	}
 
-	private boolean isSubcategoriaReceita(String string) {
+	protected boolean isSubcategoriaReceita(String string) {
 		for (TipoReceita tr : tiposReceitas) {
 			if (tr.getSubcategoria().equals(string))
 				return true;

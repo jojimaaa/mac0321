@@ -101,7 +101,9 @@ public class TestaEscritaPlanilhas {
         leitor.leTiposDespesas("csv\\tiposDespesas.csv");
 		leitor.leTiposReceitas("csv\\tiposReceitas.csv");
 		leitor.leUsuarios("csv\\usuarios.csv");
-        lancamentoManager = new LancamentoManager(leitor.leLancamentos("csv\\lancamentos.csv"));
+        lancamentoManager = new LancamentoManager();
+        /* lancamentoManager = new LancamentoManager(leitor.leLancamentos("csv\\lancamentos.csv")); */
+        lancamentoManager = lancamentoManager.fromLancamentoList(leitor.leLancamentos("csv\\lancamentos.csv"));
         leitor.clear();
         
         Lancamento l = new Lancamento(9,"22/06/24","Carlinhos",true,"McDonalds",50,"Big Tasty");

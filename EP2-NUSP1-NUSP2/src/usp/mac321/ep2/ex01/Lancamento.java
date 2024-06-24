@@ -5,12 +5,12 @@ public class Lancamento {
     public final boolean D = true;
 
     private int id = 0;
-    private String data = "";
-    private boolean tipo = R;
-    private String subcategoria;
-    private String descricao = "";
-    private String userResponsable = "";
-    private double valor = 0.0;
+    protected String data = "";
+    protected boolean tipo = R;
+    protected String subcategoria;
+    protected String descricao = "";
+    protected String userResponsable = "";
+    protected double valor = 0.0;
 
     public Lancamento(int id, String data, String userResponsable, boolean tipo, String subcategoria, double valor, String descricao) {
         this.id = id;

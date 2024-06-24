@@ -3,7 +3,7 @@ package usp.mac321.ep2.ex01;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-
+import usp.mac321.ep2.exceptions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

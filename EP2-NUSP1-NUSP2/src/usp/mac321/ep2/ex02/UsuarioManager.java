@@ -43,6 +43,18 @@ public class UsuarioManager implements WriterDAO<Usuario>, GetterDAO<Usuario>, M
         return false;
     }
 
+    public boolean remove(String apelido){
+        if(apelido == null)
+            return false;
+        for(Usuario usuario : usuarios){
+            if(usuario.getApelido().equals(apelido)){
+                usuarios.remove(usuario);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public Usuario get(Usuario user) {
         if (user == null)

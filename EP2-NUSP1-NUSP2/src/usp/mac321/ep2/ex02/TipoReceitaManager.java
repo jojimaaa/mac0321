@@ -42,6 +42,18 @@ public class TipoReceitaManager implements WriterDAO<TipoReceita>, GetterDAO<Tip
         return false;
     }
 
+    public boolean remove(String Categoria, String Subcategoria){
+        if(Categoria == null || Subcategoria == null)
+            return false;
+        for(TipoReceita t : tiposReceita){
+            if(t.getCategoria().equals(Categoria) && t.getSubcategoria().equals(Subcategoria)){
+                tiposReceita.remove(t);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public TipoReceita get(TipoReceita object) {
         if(object == null)

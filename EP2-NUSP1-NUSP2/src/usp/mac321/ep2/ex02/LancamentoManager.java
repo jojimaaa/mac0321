@@ -4,19 +4,39 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import usp.mac321.ep2.ex01.*;
-
+import usp.mac321.ep2.ex03.LancamentoTunado;
+import usp.mac321.ep2.exceptions.InvalidLancamentoInput;
 public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lancamento>, ModifyDAO<Lancamento>{
 
-    private List<Lancamento> lancamentos;
+    private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
+    protected HashMap<Integer, Lancamento> idMap = new HashMap<>();
 
-    public LancamentoManager(List<Lancamento> lancamentos) {
-        this.lancamentos = new ArrayList<Lancamento>();
+    public LancamentoManager fromLancamentoList(List<Lancamento> lancamentos){
+        LancamentoManager manager = new LancamentoManager();
         for(Lancamento lancamento : lancamentos) {
-            this.lancamentos.add(lancamento);
+            if(!manager.idMap.containsKey(lancamento.getId())) {
+                manager.idMap.put(lancamento.getId(), lancamento);
+                manager.getAll().add(lancamento);
+            }
+            else throw new InvalidLancamentoInput("Lançamento com ID repetido");
         }
+        return manager;
+    }
+
+    public LancamentoManager fromLancamentoTunadoList(List<LancamentoTunado> lancamentos) {
+        LancamentoManager manager = new LancamentoManager();
+        for(LancamentoTunado lancamento : lancamentos) {
+            if(!manager.idMap.containsKey(lancamento.getId())){
+                manager.idMap.put(lancamento.getId(), lancamento);
+                manager.getAll().add(lancamento);
+            }
+            else throw new InvalidLancamentoInput("Lançamento com ID repetido");
+        }
+        return manager;
     }
 
     @Override
@@ -42,6 +62,17 @@ public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lanca
         return false;
     }
 
+    public boolean remove(int ID){
+        if(!doesIDAlreadyExist(ID))
+            return false;
+        Lancamento l = idMap.get(ID);
+        if(l == null)
+            return false;
+        lancamentos.remove(l);
+        idMap.remove(ID);
+        return true;
+    }
+
     @Override
     public Lancamento get(Lancamento object) {
         if(object == null)
@@ -51,6 +82,10 @@ public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lanca
                 return l;
         }
         return null;
+    }
+
+    public Lancamento get(int ID){
+        return idMap.get(ID);
     }
 
     @Override
@@ -80,6 +115,19 @@ public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lanca
                 return true;
         }
         return false;
+    }
+
+    public void clear(){
+        lancamentos.clear();
+        idMap.clear();
+    }
+
+    public HashMap<Integer, Lancamento> getIDMap(){
+        return idMap;
+    }
+
+    public boolean doesIDAlreadyExist(int id){
+        return this.idMap.containsKey(id);
     }
 
 }
