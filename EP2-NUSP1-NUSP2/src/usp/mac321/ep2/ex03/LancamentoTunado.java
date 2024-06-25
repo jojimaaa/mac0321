@@ -30,6 +30,10 @@ public class LancamentoTunado extends Lancamento {
         } else {
             this.status = "Planejado";
         }
+
+        if(valor < 0){
+            this.status = "Inválido";
+        }
     }
 
     public LancamentoTunado(int id, String data, String userResponsable, boolean tipo, String subcategoria,
@@ -80,6 +84,10 @@ public class LancamentoTunado extends Lancamento {
         } catch (ParseException e) {
             return false;
         }
+    }
+
+    public void setTipo(boolean tipo){
+        this.tipo = tipo;
     }
 
 

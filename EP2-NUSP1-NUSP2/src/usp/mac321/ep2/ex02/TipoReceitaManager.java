@@ -80,9 +80,9 @@ public class TipoReceitaManager implements WriterDAO<TipoReceita>, GetterDAO<Tip
             }
             writer.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Arquivo não encontrado");
+            System.err.println("Arquivo não encontrado");
         } catch (UnsupportedEncodingException e) {
-            System.out.println("Encoding não suportado");
+            System.err.println("Encoding não suportado");
         }
     }
 

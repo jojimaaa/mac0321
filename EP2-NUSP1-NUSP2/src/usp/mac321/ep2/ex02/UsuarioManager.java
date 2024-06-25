@@ -81,9 +81,9 @@ public class UsuarioManager implements WriterDAO<Usuario>, GetterDAO<Usuario>, M
             }
             writer.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Arquivo não encontrado");
+            System.err.println("Arquivo não encontrado");
         } catch (UnsupportedEncodingException e) {
-            System.out.println("Encoding não suportado");
+            System.err.println("Encoding não suportado");
         }
     }
 

@@ -12,7 +12,7 @@ import usp.mac321.ep2.ex03.LancamentoTunado;
 import usp.mac321.ep2.exceptions.InvalidLancamentoInput;
 public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lancamento>, ModifyDAO<Lancamento>{
 
-    private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
+    protected List<Lancamento> lancamentos = new ArrayList<Lancamento>();
     protected HashMap<Integer, Lancamento> idMap = new HashMap<>();
 
     public LancamentoManager fromLancamentoList(List<Lancamento> lancamentos){
@@ -103,13 +103,13 @@ public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lanca
             }
             writer.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Arquivo não encontrado");
+            System.err.println("Arquivo não encontrado");
         } catch (UnsupportedEncodingException e) {
-            System.out.println("Encoding não suportado");
+            System.err.println("Encoding não suportado");
         }
     }
     
-    private boolean lancamentoExiste(Lancamento lancamento) {
+    protected boolean lancamentoExiste(Lancamento lancamento) {
         for(Lancamento l : lancamentos) {
             if(l.equals(lancamento))
                 return true;

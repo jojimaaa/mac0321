@@ -92,4 +92,20 @@ public class LeitorTunadoImplementation extends LeitorImplementation {
 		lancamentosTunados.clear();
 		idMap.clear();
 	}
+
+	public List<LancamentoTunado> getLancamentos(){
+		return lancamentosTunados;
+	}
+
+	public List<TipoDespesa> getTiposDespesas(){
+		return tiposDespesas;
+	}
+
+	public List<TipoReceita> getTiposReceitas(){
+		return tiposReceitas;
+	}
+
+	public List<Usuario> getUsuarios(){
+		return usuarios;
+	}
 }
