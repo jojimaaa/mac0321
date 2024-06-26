@@ -33,7 +33,7 @@ public class TestaEscritaPlanilhas {
     @Test
     public void testeUsuarioManager(){
         List<Usuario> usuariosExpected = new ArrayList<Usuario>();
-        for (Usuario u : leitor.leUsuarios("expectedOutputs\\usuariosExpected.csv")) {
+        for (Usuario u : leitor.leUsuarios("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\usuariosExpected.csv")) {
             usuariosExpected.add(u);
         }
         leitor.clear();
@@ -42,8 +42,8 @@ public class TestaEscritaPlanilhas {
         usuarioManager = new UsuarioManager(leitor.leUsuarios("csv\\usuarios.csv"));
         leitor.clear();
         usuarioManager.add(u);
-        usuarioManager.write("outputs\\usuariosOutput.csv");
-        written = leitor.leUsuarios("outputs\\usuariosOutput.csv");
+        usuarioManager.write("src\\usp\\mac321\\ep2\\ex02\\outputs\\usuariosOutput.csv");
+        written = leitor.leUsuarios("src\\usp\\mac321\\ep2\\ex02\\outputs\\usuariosOutput.csv");
         for (int i = 0; i < written.size(); i++) {
             assertTrue(written.get(i).equals(usuariosExpected.get(i)));
         }
@@ -52,7 +52,7 @@ public class TestaEscritaPlanilhas {
     @Test
     public void testeTipoDespesaManager(){
         List<TipoDespesa> tiposDespesasExpected = new ArrayList<TipoDespesa>();
-        for (TipoDespesa td : leitor.leTiposDespesas("expectedOutputs\\tiposDespesasExpected.csv")) {
+        for (TipoDespesa td : leitor.leTiposDespesas("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\tiposDespesasExpected.csv")) {
             tiposDespesasExpected.add(td);
         }
         leitor.clear();
@@ -61,8 +61,8 @@ public class TestaEscritaPlanilhas {
         tipoDespesaManager = new TipoDespesaManager(leitor.leTiposDespesas("csv\\tiposDespesas.csv"));
         leitor.clear();
         tipoDespesaManager.add(td);
-        tipoDespesaManager.write("outputs\\tiposDespesasOutput.csv");
-        written = leitor.leTiposDespesas("outputs\\tiposDespesasOutput.csv");
+        tipoDespesaManager.write("src\\usp\\mac321\\ep2\\ex02\\outputs\\tiposDespesasOutput.csv");
+        written = leitor.leTiposDespesas("src\\usp\\mac321\\ep2\\ex02\\outputs\\tiposDespesasOutput.csv");
         for (int i = 0; i < written.size(); i++) {
             assertTrue(written.get(i).equals(tiposDespesasExpected.get(i)));
         }
@@ -71,7 +71,7 @@ public class TestaEscritaPlanilhas {
     @Test
     public void testeTipoReceitaManager(){
         List<TipoReceita> tiposReceitasExpected = new ArrayList<TipoReceita>();
-        for (TipoReceita tr : leitor.leTiposReceitas("expectedOutputs\\tiposReceitasExpected.csv")) {
+        for (TipoReceita tr : leitor.leTiposReceitas("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\tiposReceitasExpected.csv")) {
             tiposReceitasExpected.add(tr);
         }
         leitor.clear();
@@ -80,8 +80,8 @@ public class TestaEscritaPlanilhas {
         tipoReceitaManager = new TipoReceitaManager(leitor.leTiposReceitas("csv\\tiposReceitas.csv"));
         leitor.clear();
         tipoReceitaManager.add(tr);
-        tipoReceitaManager.write("outputs\\tiposReceitasOutput.csv");
-        written = leitor.leTiposReceitas("outputs\\tiposReceitasOutput.csv");
+        tipoReceitaManager.write("src\\usp\\mac321\\ep2\\ex02\\outputs\\tiposReceitasOutput.csv");
+        written = leitor.leTiposReceitas("src\\usp\\mac321\\ep2\\ex02\\outputs\\tiposReceitasOutput.csv");
         for (int i = 0; i < written.size(); i++) {
             assertTrue(written.get(i).equals(tiposReceitasExpected.get(i)));
         }
@@ -90,10 +90,10 @@ public class TestaEscritaPlanilhas {
     @Test
     public void testeLancamentoManager(){
         List<Lancamento> lancamentosExpected = new ArrayList<Lancamento>();
-        leitor.leTiposReceitas("expectedOutputs\\tiposReceitasExpected.csv");
-        leitor.leTiposDespesas("expectedOutputs\\tiposDespesasExpected.csv");
-        leitor.leUsuarios("expectedOutputs\\usuariosExpected.csv");
-        for (Lancamento l : leitor.leLancamentos("expectedOutputs\\lancamentosExpected.csv")) {
+        leitor.leTiposReceitas("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\tiposReceitasExpected.csv");
+        leitor.leTiposDespesas("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\tiposDespesasExpected.csv");
+        leitor.leUsuarios("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\usuariosExpected.csv");
+        for (Lancamento l : leitor.leLancamentos("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\lancamentosExpected.csv")) {
             lancamentosExpected.add(l);
         }
         leitor.clear();
@@ -108,13 +108,13 @@ public class TestaEscritaPlanilhas {
         
         Lancamento l = new Lancamento(9,"22/06/24","Carlinhos",true,"McDonalds",50,"Big Tasty");
         lancamentoManager.add(l);
-        lancamentoManager.write("outputs\\lancamentosOutput.csv");
+        lancamentoManager.write("src\\usp\\mac321\\ep2\\ex02\\outputs\\lancamentosOutput.csv");
         
         List<Lancamento> written;
-        leitor.leTiposReceitas("expectedOutputs\\tiposReceitasExpected.csv");
-        leitor.leTiposDespesas("expectedOutputs\\tiposDespesasExpected.csv");
-        leitor.leUsuarios("expectedOutputs\\usuariosExpected.csv");
-        written = leitor.leLancamentos("outputs\\lancamentosOutput.csv");
+        leitor.leTiposReceitas("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\tiposReceitasExpected.csv");
+        leitor.leTiposDespesas("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\tiposDespesasExpected.csv");
+        leitor.leUsuarios("src\\usp\\mac321\\ep2\\ex02\\expectedOutputs\\usuariosExpected.csv");
+        written = leitor.leLancamentos("src\\usp\\mac321\\ep2\\ex02\\outputs\\lancamentosOutput.csv");
         for (int i = 0; i < written.size(); i++) {
             assertTrue(written.get(i).equals(lancamentosExpected.get(i)));
         }

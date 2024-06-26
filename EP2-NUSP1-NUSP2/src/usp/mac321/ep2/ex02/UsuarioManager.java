@@ -89,10 +89,10 @@ public class UsuarioManager implements WriterDAO<Usuario>, GetterDAO<Usuario>, M
 
     private boolean usuarioExiste(Usuario user) {
         for (Usuario u : usuarios) {
-            if (u.equals(user))
+            if (u.getApelido().equals(user.getApelido()) || u.getNome().equals(user.getNome()))
                 return true;
-        }
-        return false;
-    }
+            }
+            return false;
 
+}
 }

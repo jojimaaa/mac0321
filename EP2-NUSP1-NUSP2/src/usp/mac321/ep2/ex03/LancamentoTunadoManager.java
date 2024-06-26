@@ -40,6 +40,7 @@ public class LancamentoTunadoManager extends LancamentoManager {
         if (lancamentoExiste(object))
             return false;
         lancamentos.add(object);
+        idMap.put(object.getId(), object);
         return true;
     }
 

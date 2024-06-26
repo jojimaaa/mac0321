@@ -1,8 +1,6 @@
 package usp.mac321.ep2.ex03;
 
-import usp.mac321.ep2.ex01.TipoDespesa;
-import usp.mac321.ep2.ex01.TipoReceita;
-import usp.mac321.ep2.ex01.Usuario;
+import usp.mac321.ep2.ex01.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,9 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestaLancamentos {

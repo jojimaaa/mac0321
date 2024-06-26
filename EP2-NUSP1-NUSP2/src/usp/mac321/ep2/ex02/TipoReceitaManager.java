@@ -74,7 +74,7 @@ public class TipoReceitaManager implements WriterDAO<TipoReceita>, GetterDAO<Tip
     public void write(String address) {
         try {
             PrintWriter writer = new PrintWriter(address, "UTF-8");
-            writer.println("Categoria,Subcategoria");
+            writer.println("Categoria,SubCategoria");
             for(TipoReceita t : tiposReceita) {
                 writer.println(t.getCategoria() + "," + t.getSubcategoria());
             }

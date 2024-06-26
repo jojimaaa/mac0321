@@ -46,6 +46,7 @@ public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lanca
         if(lancamentoExiste(object))
             return false;
         lancamentos.add(object);
+        idMap.put(object.getId(), object);
         return true;
     }
 
@@ -56,6 +57,7 @@ public class LancamentoManager implements WriterDAO<Lancamento>, GetterDAO<Lanca
         for(Lancamento l : lancamentos) {
             if(l.equals(object)) {
                 lancamentos.remove(l);
+                idMap.remove(l.getId());
                 return true;
             }
         }

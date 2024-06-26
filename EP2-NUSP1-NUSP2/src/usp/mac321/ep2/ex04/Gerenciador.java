@@ -139,6 +139,13 @@ public class Gerenciador {
         return true;
     }
 
+    public void statusFixAll(){
+        for (Lancamento l : lancamentoManager.getAll()) {
+            if (l instanceof LancamentoTunado)
+                statusFix((LancamentoTunado) l);
+        }
+    }
+
     public boolean criaUsuario(String apelido, String nome) {
         Usuario usuario = new Usuario(apelido, nome);
         return usuarioManager.add(usuario);
@@ -163,6 +170,7 @@ public class Gerenciador {
                 throw new InvalidLancamentoInput("Lançamento Inválido");
             }
         } catch (Exception e) {
+            System.err.println("Lancamento " + id + " inválido");
             lancamento.setStatus("Inválido");
         }
         return lancamentoManager.add(lancamento);
@@ -276,10 +284,19 @@ public class Gerenciador {
         return false;
     }
 
+    public String getStatus(int id) {
+        Lancamento l = lancamentoManager.get(id);
+        if (l == null)
+            return "Lançamento não encontrado";
+        if (l instanceof LancamentoTunado)
+            return ((LancamentoTunado) l).getStatus();
+        return "Lançamento não é do tipo LancamentoTunado";
+    }
+
     public void currentState(String parentAddress) {
 
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy@HH_mm_ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy@HH_mm");
         String formattedNow = now.format(formatter);
 
         lancamentoManager.write(parentAddress + "\\lancamentos" + formattedNow + ".csv");

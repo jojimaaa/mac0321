@@ -75,7 +75,7 @@ public class TipoDespesaManager implements WriterDAO<TipoDespesa>, GetterDAO<Tip
     public void write(String address) {
         try {
             PrintWriter writer = new PrintWriter(address, "UTF-8");
-            writer.println("Categoria,Subcategoria");
+            writer.println("Categoria,SubCategoria");
             for(TipoDespesa t : tiposDespesa) {
                 writer.println(t.getCategoria() + "," + t.getSubcategoria());
             }
