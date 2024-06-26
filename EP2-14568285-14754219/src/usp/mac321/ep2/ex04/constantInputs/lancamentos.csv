@@ -1,0 +1,16 @@
+ID,Data,Responsável,Despesa?,SubCategoria,Valor,Descrição
+1,01/05/24,Jojima,FALSE,Principal,20,Salário Jojima
+2,02/05/24,Tutu,FALSE,Principal,28000,Salário Arthur
+3,02/05/24,Jojima,FALSE,Tigrinho,50000,Link bugado do Tigrinho
+4,03/05/24,Jojima,TRUE,Cinema,48,Divertidamente 2
+5,03/05/24,Tutu,TRUE,Cinema,48,Divertidamente 2
+6,04/05/24,Tutu,TRUE,Streaming,200,Netflix
+7,04/05/24,Jojima,TRUE,Ônibus,11,Mercado Ida e Volta
+8,04/05/24,Jojima,TRUE,Essencial,591.05,195 Trakinas e 1 Coca 2L
+9,04/05/24,Tutu,TRUE,Uber,952.36,Maranhão
+10,05/05/24,Tutu,TRUE,Essencial,7649.80,51 Vapes Ignite Blueberry Ice
+11,06/05/24,Tutu,FALSE,IC,1000,IC efeitos negativos do cigarro eletrônico no corpo
+12,06/05/24,Tutu,FALSE,Renda Fixa,1000,Poupança
+13,06/05/24,Jojima,FALSE,Previdência,5689,Pingou a previdência
+14,07/05/24,Tutu,FALSE,Bets,1000,Real Madrid x Maranhão Atlético Clube
+15,07/05/24,Tutu,TRUE,Secundário,16.90,Arroz
