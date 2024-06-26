@@ -82,7 +82,6 @@ public class Teste04 {
     @Test
     public void testaRemoveUsuario(){
         assertTrue(gerenciador.removeUsuario("Jojima"));
-        gerenciador.statusFixAll();
         assertEquals(gerenciador.getStatus(1), "Inválido");
         assertEquals(gerenciador.getStatus(3), "Inválido");
         assertEquals(gerenciador.getStatus(4), "Inválido");
@@ -92,7 +91,6 @@ public class Teste04 {
     @Test
     public void testaRemoveTipoReceita(){
         assertTrue(gerenciador.removeTipoReceita("Salário", "Principal"));
-        gerenciador.statusFixAll();
         assertEquals(gerenciador.getStatus(1), "Inválido");
         assertEquals(gerenciador.getStatus(2), "Inválido");
         assertEquals(gerenciador.getStatus(3), "Executado"); 
@@ -101,7 +99,6 @@ public class Teste04 {
     @Test
     public void testaRemoveTipoDespesa(){
         assertTrue(gerenciador.removeTipoDespesa("Alimentação", "Essencial"));
-        gerenciador.statusFixAll();
         assertEquals(gerenciador.getStatus(8), "Inválido");
         assertEquals(gerenciador.getStatus(7), "Inválido");
         assertEquals(gerenciador.getStatus(3), "Executado"); 
@@ -116,50 +113,49 @@ public class Teste04 {
     @Test
     public void testaMudaValor(){
         assertTrue(gerenciador.mudaValor(1, -100));
-        gerenciador.statusFixAll();
         assertEquals(gerenciador.getStatus(1), "Inválido");
     }
 
     @Test
     public void testaMudaData(){
         assertTrue(gerenciador.mudaData(1, "26/06/2052"));
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Planejado");
     }
 
     @Test
     public void testaMudaSubcategoria(){
         assertTrue(gerenciador.mudaSubcategoria(1, "Tigrinho"));
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Executado");
         assertTrue(gerenciador.mudaSubcategoria(1, "lasdfkasdgfa"));
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Inválido");
     }
 
     @Test
     public void testaMudaTipo(){
         assertTrue(gerenciador.mudaTipo(1, D));
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Inválido");
 
         gerenciador.mudaSubcategoria(1, "Essencial");
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Executado");
 
         assertTrue(gerenciador.mudaTipo(1, R));
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Inválido");
     }
 
     @Test
     public void testaMudaUsuario(){
         assertTrue(gerenciador.mudaUsuario(1, "Jorge"));
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Inválido");
 
         assertTrue(gerenciador.mudaUsuario(1, "Tutu"));
-        gerenciador.statusFixAll();
+
         assertEquals(gerenciador.getStatus(1), "Executado");
     }
 
@@ -167,7 +163,7 @@ public class Teste04 {
     public void testaTotalValidValue(){
         assertEquals(69483.15, gerenciador.totalValidValue("01/05/24", "05/05/24"));
         gerenciador.mudaUsuario(1, "Jorge");
-        gerenciador.statusFixAll();
+
         assertEquals(69463.15, gerenciador.totalValidValue("01/05/24", "05/05/24"));
     }
 
@@ -175,7 +171,7 @@ public class Teste04 {
     public void testaTotalCategoryValue(){
         assertEquals(79020, gerenciador.totalCategoryValue("01/05/24", "06/05/24", R));
         gerenciador.mudaUsuario(1, "Jorge");
-        gerenciador.statusFixAll();
+
         assertEquals(79000, gerenciador.totalCategoryValue("01/05/24", "06/05/24", R));
     }
 
@@ -183,7 +179,7 @@ public class Teste04 {
     public void testaTotalSubcategoryValue(){
         assertEquals(28020, gerenciador.totalSubcategoryValue("01/05/24", "06/05/24", R, "Principal"));
         gerenciador.mudaUsuario(2, "Jorge");
-        gerenciador.statusFixAll();
+
         assertEquals(20, gerenciador.totalSubcategoryValue("01/05/24", "06/05/24", R, "Principal"));
     }
 

@@ -182,10 +182,7 @@ public class Gerenciador {
 
     public boolean removeUsuario(String apelido) {
         if (usuarioManager.remove(apelido)) {
-            for (Lancamento l : lancamentoManager.getAll()) {
-                if (l instanceof LancamentoTunado)
-                    statusFix((LancamentoTunado) l);
-            }
+            statusFixAll();
             return true;
         }
         return false;
@@ -193,10 +190,7 @@ public class Gerenciador {
 
     public boolean removeTipoDespesa(String Categoria, String Subcategoria) {
         if (tipoDespesaManager.remove(Categoria, Subcategoria)) {
-            for (Lancamento l : lancamentoManager.getAll()) {
-                if (l instanceof LancamentoTunado)
-                    statusFix((LancamentoTunado) l);
-            }
+            statusFixAll();
             return true;
         }
         return false;
@@ -204,10 +198,7 @@ public class Gerenciador {
 
     public boolean removeTipoReceita(String Categoria, String Subcategoria) {
         if (tipoReceitaManager.remove(Categoria, Subcategoria)) {
-            for (Lancamento l : lancamentoManager.getAll()) {
-                if (l instanceof LancamentoTunado)
-                    statusFix((LancamentoTunado) l);
-            }
+            statusFixAll();
             return true;
         }
         return false;
